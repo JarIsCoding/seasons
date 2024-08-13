@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hoverBig:hover{
+  animation: sizeUp .1s 1 linear normal;
+  transform: scale(1.05);
+}
+
+@keyframes sizeUp {
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.05);
+  }
+}
