@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 .hoverBig:hover{
-  animation: sizeUp .1s 1 linear normal;
+  animation: sizeUp .15s 1 linear normal;
   transform: scale(1.05);
+}
+
+.hoverBig:not(:hover) {
+  animation: sizeDown .15s 1 linear normal;
+  transform: scale(1);
 }
 
 @keyframes sizeUp {
@@ -13,5 +18,15 @@
   }
   100%{
     transform: scale(1.05);
+  }
+}
+@keyframes sizeDown {
+  0%{
+    transform: scale(1.05);
+    z-index: 20;
+  }
+  100%{
+    transform: scale(1);
+    z-index: 20;
   }
 }
