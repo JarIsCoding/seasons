@@ -3,15 +3,42 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-
+  const [load, setLoad] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
   const [currentClick, setCurrentClick] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log(currentClick)
-  }, [currentClick])
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => setLoad(false), 1000);
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    console.log('Current click:', currentClick);
+  }, [currentClick]);
 
   return (
-    <div className={``}>
+    <div className="relative h-screen">
+
+      {/* Loading Screen */}
+      {load && (
+        <div
+          className={`
+          absolute z-50 
+          bg-purple-200 
+          w-full h-full 
+          flex justify-center items-center 
+          transition-opacity duration-1000 
+          ${fadeOut ? 'opacity-0' : 'opacity-100'}
+          `}
+        >
+          <p>Loading... (not really)</p>
+        </div>
+      )}
+
       <div
         className={` 
         absolute left-0 top-0 
@@ -22,7 +49,7 @@ export default function Home() {
       `}
         onClick={() => setCurrentClick('TL')}
       >
-        <div className={`p-2 text-[20px] ${currentClick === 'TL' ? 'block' : 'hidden'}`} onClick={(e) => {
+        <div className={`p-2 text-[20px] max-w-min ${currentClick === 'TL' ? 'block' : 'hidden'}`} onClick={(e) => {
           e.stopPropagation();
           setCurrentClick(null)
         }
@@ -44,7 +71,7 @@ export default function Home() {
         `}
         onClick={() => setCurrentClick('TR')}
       >
-        <div className={`p-2 text-[20px] ${currentClick === 'TR' ? 'block' : 'hidden'}`} onClick={(e) => {
+        <div className={`p-2 text-[20px] max-w-min ${currentClick === 'TR' ? 'block' : 'hidden'}`} onClick={(e) => {
           e.stopPropagation();
           setCurrentClick(null)
         }
@@ -72,7 +99,7 @@ export default function Home() {
         `}
         onClick={() => setCurrentClick('BL')}
       >
-        <div className={`p-2 text-[20px] ${currentClick === 'BL' ? 'block' : 'hidden'}`} onClick={(e) => {
+        <div className={`p-2 text-[20px] max-w-min ${currentClick === 'BL' ? 'block' : 'hidden'}`} onClick={(e) => {
           e.stopPropagation();
           setCurrentClick(null)
         }
@@ -94,20 +121,24 @@ export default function Home() {
         `}
         onClick={() => setCurrentClick('BR')}
       >
-        <div className={`p-2 text-[20px] ${currentClick === 'BR' ? 'block' : 'hidden'}`} onClick={(e) => {
-          e.stopPropagation();
-          setCurrentClick(null)
-        }
-        }>
-          x
+        <div>
+          <div className={`p-2 text-[20px] max-w-min ${currentClick === 'BR' ? 'block' : 'hidden'}`} onClick={(e) => {
+            e.stopPropagation();
+            setCurrentClick(null)
+          }
+          }>
+            x
+          </div>
         </div>
         <div className={`text-center text-[20px] ${currentClick === 'BR' ? '' : 'ms-20 pt-10'}`}>
           Text
         </div>
       </div>
 
-      <div className="absolute top-[48.5%] left-[49.5%]">
-        Hi
+      <div className="absolute h-full w-full flex justify-center items-center">
+        <div>
+          Hi
+        </div>
       </div>
     </div>
   );
