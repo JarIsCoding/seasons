@@ -7,6 +7,18 @@ export default function Home() {
   const [fadeOut, setFadeOut] = useState(false);
   const [currentClick, setCurrentClick] = useState<string | null>(null);
   const [shrinkOthers, setShrinkOthers] = useState(false); 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.matchMedia("(max-width: 768px)").matches);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -47,7 +59,7 @@ export default function Home() {
         bg-red-200 
         origin-top-left
         transition-all duration-500 ease-in-out
-        ${currentClick === 'TL' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : 'w-1/2 h-1/2 hover:z-20 z-10 hoverBig rounded-br-[100px] border border-b-red-400 border-r-red-400'}
+        ${currentClick === 'TL' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : `w-1/2 h-1/2 hover:z-20 z-10 rounded-br-[100px] border border-b-red-400 border-r-red-400 ${!isSmallScreen ? 'hover:z-20 hoverBig' : ''}`}
       `}
         onClick={() => setCurrentClick('TL')}
       >
@@ -68,7 +80,7 @@ export default function Home() {
         bg-blue-200 
         origin-top-right 
         transition-all duration-500 ease-in-out
-        ${currentClick === 'TR' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : 'w-1/2 h-1/2 hover:z-20 z-10 hoverBig rounded-bl-[100px] border border-b-blue-400 border-l-blue-400'}
+        ${currentClick === 'TR' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : `w-1/2 h-1/2 hover:z-20 z-10 rounded-bl-[100px] border border-b-blue-400 border-l-blue-400 ${!isSmallScreen ? 'hover:z-20 hoverBig' : ''}`}
         `}
         onClick={() => setCurrentClick('TR')}
       >
@@ -89,7 +101,7 @@ export default function Home() {
         bg-yellow-200 
         origin-bottom-left 
         transition-all duration-500 ease-in-out
-        ${currentClick === 'BL' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : 'w-1/2 h-1/2 hover:z-20 z-10 hoverBig rounded-tr-[100px] border border-t-yellow-400 border-r-yellow-400'}
+        ${currentClick === 'BL' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : `w-1/2 h-1/2 hover:z-20 z-10 hoverBig rounded-tr-[100px] border border-t-yellow-400 border-r-yellow-400 ${!isSmallScreen ? 'hover:z-20 hoverBig' : ''}`}
         `}
         onClick={() => setCurrentClick('BL')}
       >
@@ -110,7 +122,7 @@ export default function Home() {
         bg-green-200 
         origin-bottom-right 
         transition-all duration-500 ease-in-out
-        ${currentClick === 'BR' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : 'w-1/2 h-1/2 hover:z-20 z-10 hoverBig rounded-tl-[100px] border border-t-green-400 border-l-green-400'}
+        ${currentClick === 'BR' ? 'w-full h-full z-30' : shrinkOthers ? 'w-0 h-0 opacity-0 pointer-events-none z-10' : `w-1/2 h-1/2 hover:z-20 z-10 rounded-tl-[100px] border border-t-green-400 border-l-green-400 ${!isSmallScreen ? 'hover:z-20 hoverBig' : ''}`}
         `}
         onClick={() => setCurrentClick('BR')}
       >
