@@ -140,7 +140,7 @@ export default function Home() {
       </div>
 
       <div className={`absolute h-full w-full flex justify-center items-center`}>
-        <div className={`transition-all select-none ${shrinkOthers ? 'rounded-xl bg-slate-100 z-0 border border-black px-[20px] py-[12.5px]' : 'rounded-xl p-20'}`} onClick={handleMiddleClick}>
+        <div className={`transition-all select-none ${shrinkOthers ? 'rounded-xl bg-slate-100 z-0 border border-black px-[20px] py-[12.5px] move-to-top-left' : 'rounded-xl p-20 move-to-center'}`} onClick={handleMiddleClick}>
           {shrinkOthers ? 'x' : 'Hi'}
         </div>
       </div>
