@@ -6,7 +6,7 @@ export default function Home() {
   const [load, setLoad] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [currentClick, setCurrentClick] = useState<string | null>(null);
-  const [shrinkOthers, setShrinkOthers] = useState(false); 
+  const [shrinkOthers, setShrinkOthers] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      
+
       {/* Loading Screen */}
       {load && (
         <div
@@ -69,8 +69,10 @@ export default function Home() {
         }}>
           x
         </div>
-        <div className={`text-center sm:text-[20px] text-[16px] ${currentClick === 'TL' ? '' : 'me-20 pt-10'}`}>
-          Text
+        <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'TL' ? '' : 'me-20 pt-10'}`}>
+          <p className={`${currentClick === 'TL' ? 'm-0' : '-me-10 sm:me-0'}`}>
+            Projects
+          </p>
         </div>
       </div>
 
@@ -90,8 +92,10 @@ export default function Home() {
         }}>
           x
         </div>
-        <div className={`text-center sm:text-[20px] text-[16px] ${currentClick === 'TR' ? '' : 'ms-20 pt-10'}`}>
-          Text
+        <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'TR' ? '' : 'ms-20 pt-10'}`}>
+        <p className={`${currentClick === 'TR' ? 'm-0' : '-ms-10 sm:ms-0'}`}>
+            Skills
+          </p>
         </div>
       </div>
 
@@ -111,8 +115,10 @@ export default function Home() {
         }}>
           x
         </div>
-        <div className={`text-center sm:text-[20px] text-[16px] ${currentClick === 'BL' ? '' : 'me-20 pt-10'}`}>
-          Text
+        <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'BL' ? '' : 'me-20 pt-10'}`}>
+          <p className={`${currentClick === 'BL' ? 'm-0' : '-me-10 sm:me-0'}`}>
+            Certificates
+          </p>
         </div>
       </div>
 
@@ -134,8 +140,10 @@ export default function Home() {
             x
           </div>
         </div>
-        <div className={`text-center sm:text-[20px] text-[16px] ${currentClick === 'BR' ? '' : 'ms-20 pt-10'}`}>
-          Text
+        <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'BR' ? '' : 'ms-20 pt-10'}`}>
+          <p className={`${currentClick === 'BR' ? 'm-0' : '-ms-10 sm:ms-0'}`}>
+            Links & Other...
+          </p>
         </div>
       </div>
 
