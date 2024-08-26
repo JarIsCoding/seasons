@@ -152,6 +152,7 @@ export default function Home() {
           {shrinkOthers ? 'x' : 'Hi'}
         </div>
       </div>
+      
     </div>
   );
 }
