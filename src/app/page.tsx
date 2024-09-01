@@ -9,6 +9,9 @@ export default function Home() {
   const [shrinkOthers, setShrinkOthers] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
+  //I cant lie im not sure what to add sooo... comment here for yk the green stuff on github :3
+  //Dont worry I will add more stuff but i need a little inspiriation 
+
   useEffect(() => {
     const checkScreenSize = () => {
       setIsSmallScreen(window.matchMedia("(max-width: 768px)").matches);
