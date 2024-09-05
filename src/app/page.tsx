@@ -96,7 +96,7 @@ export default function Home() {
           x
         </div>
         <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'TR' ? '' : 'ms-20 pt-10'}`}>
-        <p className={`${currentClick === 'TR' ? 'm-0' : '-ms-10 sm:ms-0'}`}>
+          <p className={`${currentClick === 'TR' ? 'm-0' : '-ms-10 sm:ms-0'}`}>
             Skills
           </p>
         </div>
@@ -155,7 +155,7 @@ export default function Home() {
           {shrinkOthers ? 'x' : 'Hi'}
         </div>
       </div>
-      
+
     </div>
   );
 }
