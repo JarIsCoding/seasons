@@ -72,10 +72,14 @@ export default function Home() {
         }}>
           x
         </div>
-        <div className={`text-center sm:text-[25px] text-[16px] ${currentClick === 'TL' ? '' : 'me-20 pt-10'}`}>
-          <p className={`${currentClick === 'TL' ? 'm-0' : '-me-10 sm:me-0'}`}>
+        <div className={`ps-16 ${currentClick === 'TL' ? '' : 'me-20 pt-10'}`}>
+          <p className={`transition-all ${currentClick === 'TL' ? 'm-0 text-[40px]' : '-me-10 sm:me-0 text-[25px]'}`}>
             Projects
           </p>
+        </div>
+        {/* Description Text will dissapear when clicked */}
+        <div className={`ps-16 ${currentClick === 'TL' ? 'hidden' : 'block'}`}>
+          dwfqefwfqefwf
         </div>
       </div>
 
